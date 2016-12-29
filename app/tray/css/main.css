@@ -1,0 +1,78 @@
+
+
+.blur-background {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+    background: #3e3e3e;
+    background: linear-gradient(to top,#3e3e3e 0,rgba(62,62,62,.62) 100%);
+}
+
+.blur-background img{
+    left: 50%;
+    margin: -56% 0 0 -56%;
+    /*opacity: .75;*/
+    position: absolute;
+    top: 50%;
+    width: 112%;
+    filter: blur(42px);
+}
+
+table {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-collapse: collapse;
+}
+
+table tr:first-child td:first-child{
+    width: 80px;
+    padding-left: 12px;
+    cursor: pointer;
+}
+
+table td:last-child{
+    padding-right: 12px;
+}
+
+table tr:first-child td img{
+    vertical-align: middle;
+}
+
+td {
+    text-align: center;
+}
+
+.tray-controls {
+    cursor: pointer;
+}
+
+.disabled {
+    cursor: default;
+    opacity: 0.45;
+}
+
+table tr:nth-child(2) td:first-child, td:last-child {
+    width: 36px;
+}
+
+#play {
+    position: absolute;
+}
+
+#pause {
+   visibility: hidden;
+}
+
+#title, #album {
+    width: 210px;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

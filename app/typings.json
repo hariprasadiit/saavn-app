@@ -1,0 +1,10 @@
+{
+  "name": "saavn-app",
+  "dependencies": {},
+  "globalDependencies": {
+    "electron": "registry:dt/electron#1.4.8+20161220141501",
+    "es6-shim": "registry:dt/es6-shim#0.31.2+20160726072212",
+    "jquery": "registry:dt/jquery#1.10.0+20161119044246",
+    "node": "registry:dt/node#6.0.0+20161121110008"
+  }
+}

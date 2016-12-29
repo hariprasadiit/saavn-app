@@ -1,0 +1,35 @@
+{
+  "name": "saavn-app",
+  "productName": "Saavn App",
+  "version": "1.0.0",
+  "description": "Saavn Desktop App",
+  "author": "Hari Prasad <hariprasadiit@gmail.com>",
+  "homepage": "https://github.com/hariprasadiit",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build -mwl"
+  },
+  "keywords": [
+    "Electron",
+    "saavn",
+    "app",
+    "desktop",
+    "mac",
+    "windows",
+    "linux"
+  ],
+  "devDependencies": {
+    "devtron": "^1.4.0",
+    "electron": "^1.4.1"
+  },
+  "dependencies": {
+    "electron-debug": "^1.1.0",
+    "electron-positioner": "^3.0.0",
+    "electron-promote-windows-tray-items": "^1.0.1",
+    "extend": "^3.0.0",
+    "jquery": "^3.1.1"
+  }
+}

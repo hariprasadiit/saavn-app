@@ -1,0 +1,38 @@
+{
+    "scripts": {
+        "start": "electron ./app",
+        "pack": "build --dir",
+        "dist": "build -mwl"
+    },
+    "build": {
+        "appId": "me.hari.saavn",
+        "mac": {
+            "category": "public.app-category.music"
+        },
+        "dmg": {
+            "icon": "build/dmg.png",
+            "contents": [
+                {
+                    "x": 130,
+                    "y": 220
+                },
+                {
+                    "x": 410,
+                    "y": 220,
+                    "type": "link",
+                    "path": "/Applications"
+                }
+            ]
+        },
+        "linux": {
+            "target": [
+                "appImage",
+                "deb"
+            ],
+            "category": "Audio"
+        }
+    },
+    "devDependencies": {
+        "electron": "^1.4.1"
+    }
+}

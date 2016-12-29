@@ -1,0 +1,8 @@
+
+#directories
+
+dist
+app/node_modules
+app/typings
+
+#files
