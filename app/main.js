@@ -6,7 +6,8 @@ const os = require('os')
 const path = require('path')
 const url = require('url')
 
-const promoteWindowsTrayItems = require('electron-promote-windows-tray-items');
+//this package is giving error related to electron-edge
+//const promoteWindowsTrayItems = require('electron-promote-windows-tray-items');
 
 //require('electron-debug')({showDevTools: true, enabled: true});
 
@@ -157,14 +158,6 @@ let mainWindow
 let mb
 
 var fileName
-
-if (process.platform === 'win32') {
-  // Icon will now be in the toolbar customization area without the user explicitly toggling it to show in the toolbar.
-
-  promoteWindowsTrayItems(function (err) {
-    // Icon will now be in the toolbar itself unless the user explicitly hid it from the toolbar.
-  });
-}
 
 function createSaavnTray() {
   mb = menubar(opts)

@@ -2,12 +2,17 @@
     "scripts": {
         "start": "electron ./app",
         "pack": "build --dir",
-        "dist": "build -mwl"
+        "dist": "build -ml",
+        "release": "build"
     },
     "build": {
         "appId": "me.hari.saavn",
         "mac": {
-            "category": "public.app-category.music"
+            "category": "public.app-category.music",
+            "target": [
+                "dmg",
+                "zip"
+            ]
         },
         "dmg": {
             "icon": "build/dmg.png",
@@ -27,9 +32,17 @@
         "linux": {
             "target": [
                 "appImage",
-                "deb"
+                "deb",
+                "tar.gz"
             ],
             "category": "Audio"
+        },
+        "win": {
+            "target": [
+                "nsis",
+                "squirrel",
+                "zip"
+            ]
         }
     },
     "devDependencies": {
