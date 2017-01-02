@@ -13,6 +13,8 @@ const url = require('url')
 
 const menubar = require('./tray/tray')
 
+process.env.NODE_ENV = 'development'
+
 // Module to control application life.
 const app = electron.app
 const Menu = electron.Menu
@@ -148,6 +150,7 @@ var opts = {
   icon: path.join(__dirname, 'tray', 'images', 'Icon.png'),
   tooltip: 'Saavn',
   preloadWindow: true,
+  showOnAllWorkspaces: true,
   width: 390,
   height: 100
 };
@@ -163,7 +166,7 @@ function createSaavnTray() {
   mb = menubar(opts)
 
   mb.on('ready', function () {
-
+    //mb.window.setVisibleOnAllWorkspaces(true)
   });
 
   mb.on('after-close', function () {
@@ -171,13 +174,15 @@ function createSaavnTray() {
   })
 
   mb.on('after-create-window', function () {
-    //mb.window.setResizable(false);
-    if (process.env.NODE_ENV === 'dev') {
-      mb.window.openDevTools();
+    
+    if (process.env.NODE_ENV === 'development') {
+      //mb.window.openDevTools();
       mb.window.setResizable(true);
+    }else{
+      mb.window.setResizable(false);
     }
   });
-
+  
   mb.appReady()
 }
 

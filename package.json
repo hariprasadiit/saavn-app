@@ -2,8 +2,8 @@
     "scripts": {
         "start": "electron ./app",
         "pack": "build --dir",
-        "dist": "build -ml",
-        "release": "build"
+        "dist": "build -mwl",
+        "release": "build -mwl"
     },
     "build": {
         "appId": "me.hari.saavn",
