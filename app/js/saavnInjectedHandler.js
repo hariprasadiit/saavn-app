@@ -1,10 +1,10 @@
 const ipc = require('electron').ipcRenderer
 
 document.addEventListener('DOMContentLoaded', function () {
+    // hack for reducing CPU usage by settings blur filter on img instead of SVG filter
+    $("<style type='text/css'>#player-blur img, .page-header .header-fill img {filter: blur(42px);} </style>").appendTo("head");
     if (Player) {
-        //work around for css filter with svg blur, causing high cpu usage
-        document.getElementById('player-blur').style.display = 'none'
-        //console.log(Player)
+        console.log(Player)
         injectCallbacks()
     }
 })
@@ -62,6 +62,25 @@ function injectCallbacks() {
         })
     }*/
 
+}
+
+ipc.on('TO_INJECTED_HANDLER', (e) => {
+
+
+})
+
+function setDisplayNone() {
+    if ($('.header-fill img')[0]) {
+        console.log('not null')
+        if ($('.header-fill img')[0].style.display == 'none') {
+            console.log('not none')
+            async(() => { console.log('async'); setDisplayNone() }, 3000)
+
+        } else {
+            $('.header-fill img')[0].style.display = 'none'
+        }
+
+    }
 }
 
 function getRepeatState() {

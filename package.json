@@ -3,7 +3,7 @@
         "start": "electron ./app",
         "pack": "build --dir",
         "dist": "build -mwl",
-        "release": "build -mwl"
+        "release": "build"
     },
     "build": {
         "appId": "me.hari.saavn",

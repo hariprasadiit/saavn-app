@@ -13,7 +13,8 @@ const url = require('url')
 
 const menubar = require('./tray/tray')
 
-process.env.NODE_ENV = 'development'
+//process.env.NODE_ENV = 'development'
+process.env.NODE_ENV = 'production'
 
 // Module to control application life.
 const app = electron.app
@@ -197,9 +198,9 @@ function createWindow() {
     slashes: true
   }))
 
-  mainWindow.webContents.on('dom-ready', function () {
-
-  })
+  if (process.env.NODE_ENV === 'development') {
+      mainWindow.openDevTools();
+    }
 
   mainWindow.webContents.session.on('will-download', function (event, item, webContents) {
 

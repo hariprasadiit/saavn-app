@@ -1,13 +1,18 @@
+/// <reference path="typings/index.d.ts"/>
+
 const ipc = require('electron').ipcRenderer
 
-const webview = document.getElementById('saavnView') 
+const webview = document.getElementById('saavnView')
 
 webview.addEventListener('dom-ready', function () {
-    //webview.openDevTools()
+    if (process.env.NODE_ENV === 'development') {
+        webview.openDevTools()
+    }
 })
 
 webview.addEventListener('new-window', (e) => {
     webview.src = e.url;
+     e.preventDefault()
 })
 
 ipc.on('GLOBAL_SHORTCUT', (event, arg) => {
@@ -56,16 +61,16 @@ ipc.on('FROM_TRAY', (event, data) => {
             break;
         case 'DOWNLOAD':
             webview.executeJavaScript('Player.currentSongUrl', (url) => {
-                ipc.send('TO_MAIN', {'type': 'DOWNLOAD', 'url': url, 'fileName': data.data})
+                ipc.send('TO_MAIN', { 'type': 'DOWNLOAD', 'url': url, 'fileName': data.data })
             })
             break;
     }
 })
 
 ipc.on('FROM_MAIN', (event, data) => {
-    switch(data.type){
+    switch (data.type) {
         case 'NOTIFICATION':
-                new Notification(data.message)
+            new Notification(data.message)
             break;
     }
 })
